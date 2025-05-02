@@ -51,6 +51,8 @@ public extension Color {
     
     /// BF5EEC
     static let secondary40 = Color("Secondary40", bundle: .module)
+    /// C064EC
+    static let secondary45 = Color("Secondary45", bundle: .module)
     /// F9F0FF
     static let secondary95 = Color("Secondary95", bundle: .module)
     /// FDFAFF
