@@ -7,9 +7,9 @@
 
 import UIKit
 
-extension UIApplication {
+public extension UIApplication {
     
-    var keyWindow: UIWindow? {
+    public var keyWindow: UIWindow? {
         connectedScenes
             .compactMap {
                 $0 as? UIWindowScene
