@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension UIApplication {
+extension UIApplication {
     
     public var keyWindow: UIWindow? {
         connectedScenes
