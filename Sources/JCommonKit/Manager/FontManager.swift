@@ -28,6 +28,8 @@ public final class FontManager: ObservableObject {
         get { FontWeight(rawValue: fontWeightRawValue) ?? .regular }
         set { fontWeightRawValue = newValue.rawValue }
     }
+    
+    public init() {}
 }
 
 public extension FontManager {
