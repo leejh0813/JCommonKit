@@ -13,22 +13,22 @@ public enum ToastStyle {
 }
 
 public struct Toast: Equatable, Identifiable {
-    public var id = UUID()
-    var style: ToastStyle = .text
+    public let id: UUID
+    var style: ToastStyle
     var message: String
-    var duration: Double = 0.3
-    var width: Double = .infinity
+    var duration: Double
+    var width: Double
     var confirmAction: (() -> Void)?
     
     public init(
-        id: UUID = UUID(),
-        style: ToastStyle,
+        id: UUID,
+        style: ToastStyle = .text,
         message: String,
-        duration: Double,
-        width: Double,
+        duration: Double = 0.3,
+        width: Double = .infinity,
         confirmAction: (() -> Void)? = nil
     ) {
-        self.id = id
+        self.id = UUID()
         self.style = style
         self.message = message
         self.duration = duration
