@@ -27,7 +27,7 @@ let package = Package(
                 .product(name: "Lottie", package: "lottie-ios")
             ],
             resources: [
-                .process("Sources/JCommonKit/Resource")
+                .process("Resource")
             ]
         ),
     ]
