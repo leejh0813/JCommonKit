@@ -21,14 +21,14 @@ public struct Toast: Equatable, Identifiable {
     var confirmAction: (() -> Void)?
     
     public init(
-        id: UUID,
+        id: UUID = UUID(),
         style: ToastStyle = .text,
         message: String,
         duration: Double = 0.3,
         width: Double = .infinity,
         confirmAction: (() -> Void)? = nil
     ) {
-        self.id = UUID()
+        self.id = id
         self.style = style
         self.message = message
         self.duration = duration
