@@ -32,4 +32,25 @@ public struct CommonUtils {
     public static func isLocaleKo() -> Bool {
         languageCode() == "ko"
     }
+    
+    @MainActor
+    public static func generateHapticFeedback(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        let generator = UIImpactFeedbackGenerator(style: style)
+        generator.prepare()
+        generator.impactOccurred()
+    }
+    
+    @MainActor
+    public static func generateSectionFeedback() {
+        let generator = UISelectionFeedbackGenerator()
+        generator.prepare()
+        generator.selectionChanged()
+    }
+    
+    @MainActor
+    public static func generateNotificationFeedback(_ type: UINotificationFeedbackGenerator.FeedbackType) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.prepare()
+        generator.notificationOccurred(type)
+    }
 }
