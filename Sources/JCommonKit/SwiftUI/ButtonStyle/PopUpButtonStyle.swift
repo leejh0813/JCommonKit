@@ -11,6 +11,8 @@ import SwiftUI
 
 public struct PopUpButtonStyle: ButtonStyle {
     
+    public init() { }
+    
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(.vertical, 10)
