@@ -21,10 +21,3 @@ struct ToastModifier: ViewModifier {
             }
     }
 }
-
-extension View {
-    
-    func showToastView(toast: Binding<Toast?>) -> some View {
-        modifier(ToastModifier(toast: toast))
-    }
-}

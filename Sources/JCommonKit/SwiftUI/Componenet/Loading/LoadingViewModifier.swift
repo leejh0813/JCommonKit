@@ -36,26 +36,3 @@ struct LoadingViewModifier: ViewModifier {
             }
     }
 }
-
-// MARK: - View Extension
-
-extension View {
-    
-    func showLoadingView(
-        isPresented: Binding<Bool>,
-        type: LoadingView.LottieAnimationType = .loading,
-        loopMode: LottieLoopMode = .loop,
-        speed: CGFloat = 1.0,
-        animationDidFinish: (() -> Void)? = nil
-    ) -> some View {
-        modifier(
-            LoadingViewModifier(
-                type: type,
-                loopMode: loopMode,
-                speed: speed,
-                animationDidFinish: animationDidFinish,
-                isPresented: isPresented
-            )
-        )
-    }
-}

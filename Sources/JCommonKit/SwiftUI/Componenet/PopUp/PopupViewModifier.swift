@@ -28,20 +28,3 @@ struct PopupViewModifier<ContentView: View>: ViewModifier {
             }
     }
 }
-
-// MARK: - View Extension
-
-extension View {
-    
-    func showPopupView<ContentView: View>(
-        isPresented: Bool,
-        @ViewBuilder contentView: @escaping () -> ContentView
-    ) -> some View {
-        modifier(
-            PopupViewModifier(
-                isPresented: isPresented,
-                contentView: contentView
-            )
-        )
-    }
-}
