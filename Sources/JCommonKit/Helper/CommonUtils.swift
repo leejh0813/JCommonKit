@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Utils {
+public struct CommonUtils {
     
     /// 입력 텍스트에서 특정 부분을 강조한 AttributedString을 생성
     /// - Parameters:
