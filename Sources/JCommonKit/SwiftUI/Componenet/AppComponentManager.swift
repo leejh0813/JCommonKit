@@ -51,7 +51,7 @@ public final class AppComponentManager {
     
     // MARK: - Properties
     
-    @MainActor static let shared = AppComponentManager()
+    @MainActor public static let shared = AppComponentManager()
     
     private var windows: [String: UIWindow] = [:]
     private var toastWorkItem: DispatchWorkItem?
