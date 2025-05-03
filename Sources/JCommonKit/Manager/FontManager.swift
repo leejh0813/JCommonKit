@@ -19,12 +19,12 @@ public final class FontManager: ObservableObject {
     @AppStorage(fontFamily) private var fontFamilyRawValue: String = FontFamily.pretendard .rawValue
     @AppStorage(defaultFontWeight) private var fontWeightRawValue: String = FontWeight.regular.rawValue
     
-    var fontFamily: FontFamily {
+    public var fontFamily: FontFamily {
         get { FontFamily(rawValue: fontFamilyRawValue) ?? .pretendard }
         set { fontFamilyRawValue = newValue.rawValue }
     }
     
-    var fontWeight: FontWeight {
+    public var fontWeight: FontWeight {
         get { FontWeight(rawValue: fontWeightRawValue) ?? .regular }
         set { fontWeightRawValue = newValue.rawValue }
     }
