@@ -105,7 +105,7 @@ public final class AppComponentManager {
 extension AppComponentManager {
     
     @MainActor
-    func showLoading(
+    public func showLoading(
         type: LoadingView.LottieAnimationType = .loading,
         loopMode: LottieLoopMode = .loop,
         speed: CGFloat = 1.0,
@@ -123,7 +123,7 @@ extension AppComponentManager {
     }
     
     @MainActor
-    func hideLoading() {
+    public func hideLoading() {
         hideView(type: .loading)
     }
 }
@@ -133,7 +133,7 @@ extension AppComponentManager {
 extension AppComponentManager {
     
     @MainActor
-    func showToast(_ toast: Toast) {
+    public  func showToast(_ toast: Toast) {
         hideToast()
         
         showView(
@@ -159,7 +159,7 @@ extension AppComponentManager {
     }
     
     @MainActor
-    func hideToast() {
+    public func hideToast() {
         toastWorkItem?.cancel()
         toastWorkItem = nil
         
@@ -172,7 +172,7 @@ extension AppComponentManager {
 extension AppComponentManager {
     
     @MainActor
-    func showPopup<Content: View>(
+    public func showPopup<Content: View>(
         @ViewBuilder content: @escaping () -> Content
     ) {
         showView(
@@ -187,7 +187,7 @@ extension AppComponentManager {
     }
     
     @MainActor
-    func hidePopup() {
+    public func hidePopup() {
         hideView(type: .popup)
     }
 }
