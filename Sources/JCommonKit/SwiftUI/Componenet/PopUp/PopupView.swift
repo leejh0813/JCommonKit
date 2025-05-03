@@ -48,7 +48,7 @@ public struct PopupView: View {
                 }
                 
                 if let highlightedText, let text {
-                    Text(Utils.formattedText(for: text, highlight: highlightedText, color: .primary40))
+                    Text(CommonUtils.formattedText(for: text, highlight: highlightedText, color: .primary40))
                         .customFont(color: Color.gray20, size: 16, weight: .medium, lineHeight: 23)
                         .debugBackground()
                 } else if let text {

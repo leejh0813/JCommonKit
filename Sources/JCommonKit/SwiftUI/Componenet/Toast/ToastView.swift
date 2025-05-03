@@ -60,7 +60,7 @@ public struct ToastView: View {
                 Button(action: {
                     confirmButtonAction?()
                 }, label: {
-                    Text(Utils.isLocaleKo() ? "확인" : "Confirm")
+                    Text(CommonUtils.isLocaleKo() ? "확인" : "Confirm")
                         .customFont(color: Color.secondary45, size: 16, weight: .bold)
                 })
                 .buttonStyle(.plain)
