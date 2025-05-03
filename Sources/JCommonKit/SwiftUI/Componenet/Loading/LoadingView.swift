@@ -49,7 +49,7 @@ public struct LoadingView: View {
             Color.black.opacity(UI.dimOpacity)
                 .edgesIgnoringSafeArea(.all)
             
-            LottieView(animation: .named(type.filename))
+            LottieView(animation: .named(type.filename, bundle: .module))
                 .playing(loopMode: loopMode)
                 .animationDidFinish { completed in
                     if completed {
