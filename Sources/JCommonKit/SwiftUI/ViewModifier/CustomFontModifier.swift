@@ -19,6 +19,20 @@ public struct CustomFontModifier: ViewModifier {
     let weight: FontManager.FontWeight
     let lineHeight: CGFloat?
     
+    public init(
+        fontFamily: FontManager.FontFamily? = nil,
+        color: Color? = nil,
+        size: CGFloat,
+        weight: FontManager.FontWeight,
+        lineHeight: CGFloat?
+    ) {
+        self.fontFamily = fontFamily
+        self.color = color
+        self.size = size
+        self.weight = weight
+        self.lineHeight = lineHeight
+    }
+    
     // MARK: - Function
 
     public func body(content: Content) -> some View {
