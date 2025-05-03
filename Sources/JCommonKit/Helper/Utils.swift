@@ -15,7 +15,7 @@ public struct Utils {
     ///   - highlight: 강조할 부분 문자열
     ///   - color: 강조할 부분에 적용할 색상
     /// - Returns: 강조 부분이 적용된 AttributedString
-    static func formattedText(for text: String, highlight: String, color: Color) -> AttributedString {
+    public static func formattedText(for text: String, highlight: String, color: Color) -> AttributedString {
         var attributedString = AttributedString(text)
         
         if let range = attributedString.range(of: highlight) {
@@ -25,11 +25,11 @@ public struct Utils {
         return attributedString
     }
     
-    static func languageCode() -> String? {
+    public static func languageCode() -> String? {
         Locale.current.language.languageCode?.identifier
     }
     
-    static func isLocaleKo() -> Bool {
+    public static func isLocaleKo() -> Bool {
         languageCode() == "ko"
     }
 }
