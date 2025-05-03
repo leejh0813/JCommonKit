@@ -44,7 +44,7 @@ public extension FontManager {
         case oTLaundryGothic
         case iMHyemin
         
-        var koreanName: String {
+        public var koreanName: String {
             switch self {
             case .pretendard: "프리텐다드"
             case .apppleSDGothicNeo: "애플 산돌고딕 네오"
