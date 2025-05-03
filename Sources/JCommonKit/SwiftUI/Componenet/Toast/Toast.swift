@@ -20,6 +20,22 @@ public struct Toast: Equatable, Identifiable {
     var width: Double = .infinity
     var confirmAction: (() -> Void)?
     
+    public init(
+        id: UUID = UUID(),
+        style: ToastStyle,
+        message: String,
+        duration: Double,
+        width: Double,
+        confirmAction: (() -> Void)? = nil
+    ) {
+        self.id = id
+        self.style = style
+        self.message = message
+        self.duration = duration
+        self.width = width
+        self.confirmAction = confirmAction
+    }
+    
     public static func == (lhs: Toast, rhs: Toast) -> Bool {
         lhs.id == rhs.id
     }
