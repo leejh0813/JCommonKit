@@ -24,7 +24,7 @@ public struct PopupView: View {
         title: String?,
         text: String?,
         highlightedText: String? = nil,
-        cancelButtonTitle: String? = nil,
+        cancelButtonTitle: String? = CommonUtils.isLocaleKo() ? "취소" : "Cancel",
         confirmButtonTitle: String,
         closeAction: @escaping (Bool) -> Void
     ) {
