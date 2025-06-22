@@ -18,6 +18,8 @@ public enum LogLevel: String {
     case error = "ERROR"
     /// 중요 정보
     case important = "IMPORTANT"
+    /// 이벤트
+    case event = "EVENT"
     
     var imoji: String {
         switch self {
@@ -26,6 +28,7 @@ public enum LogLevel: String {
         case .warning: return ""
         case .error: return "❗️"
         case .important: return "❤️"
+        case .event: return "🎯"
         }
     }
 }
