@@ -70,26 +70,30 @@ public extension UIDevice {
         case "iPhone17,1": return "iPhone 16 Pro"
         case "iPhone17,2": return "iPhone 16 Pro Max"
             
-            // iPad (iOS 17 지원 모델들)
+            // iPad
         case "iPad12,1", "iPad12,2": return "iPad (9th generation)"
         case "iPad13,18", "iPad13,19": return "iPad (10th generation)"
+        case "iPad14,10", "iPad14,11": return "iPad (11th generation)"
             
             // iPad Air
         case "iPad11,3", "iPad11,4": return "iPad Air (3rd generation)"
         case "iPad13,1", "iPad13,2": return "iPad Air (4th generation)"
         case "iPad13,16", "iPad13,17": return "iPad Air (5th generation)"
+        case "iPad14,8", "iPad14,9": return "iPad Air (6th generation)"
             
             // iPad Pro 11인치
         case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4": return "iPad Pro 11-inch (1st generation)"
         case "iPad8,9", "iPad8,10": return "iPad Pro 11-inch (2nd generation)"
         case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7": return "iPad Pro 11-inch (3rd generation)"
         case "iPad14,3", "iPad14,4": return "iPad Pro 11-inch (4th generation)"
+        case "iPad16,3", "iPad16,4": return "iPad Pro 11-inch (M4)"
             
-            // iPad Pro 12.9인치
+            // iPad Pro 12.9인치/13인치
         case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8": return "iPad Pro 12.9-inch (3rd generation)"
         case "iPad8,11", "iPad8,12": return "iPad Pro 12.9-inch (4th generation)"
         case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11": return "iPad Pro 12.9-inch (5th generation)"
         case "iPad14,5", "iPad14,6": return "iPad Pro 12.9-inch (6th generation)"
+        case "iPad16,5", "iPad16,6": return "iPad Pro 13-inch (M4)"
             
             // iPad mini
         case "iPad11,1", "iPad11,2": return "iPad mini (5th generation)"
