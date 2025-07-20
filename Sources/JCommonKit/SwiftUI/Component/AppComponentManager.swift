@@ -60,7 +60,8 @@ public final class AppComponentManager {
     private var states: [String: AppComponentState] = [
         ComponentType.toast.rawValue: AppComponentState(),
         ComponentType.popup.rawValue: AppComponentState(),
-        ComponentType.loading.rawValue: AppComponentState()
+        ComponentType.loading.rawValue: AppComponentState(),
+        ComponentType.networkAlert.rawValue: AppComponentState()
     ]
     
     // MARK: - Initialization
