@@ -9,8 +9,6 @@ import SwiftUI
 
 public struct CustomFontModifier: ViewModifier {
     
-    // MARK: - Properties
-    
     @EnvironmentObject private var fontManager: FontManager
     
     var fontFamily: FontManager.FontFamily?
@@ -19,40 +17,29 @@ public struct CustomFontModifier: ViewModifier {
     let weight: FontManager.FontWeight
     let lineHeight: CGFloat?
     
-    public init(
-        fontFamily: FontManager.FontFamily? = nil,
-        color: Color? = nil,
-        size: CGFloat,
-        weight: FontManager.FontWeight,
-        lineHeight: CGFloat?
-    ) {
-        self.fontFamily = fontFamily
-        self.color = color
-        self.size = size
-        self.weight = weight
-        self.lineHeight = lineHeight
+    private var resolvedFontFamily: FontManager.FontFamily {
+        fontFamily ?? fontManager.fontFamily
     }
     
-    // MARK: - Function
-
+    private var fontName: String {
+        FontManager.fontName(for: resolvedFontFamily, weight: weight)
+    }
+    
+    private var customFont: Font {
+        Font.custom(fontName, size: size)
+    }
+    
+    private var uiFont: UIFont? {
+        UIFont(name: fontName, size: size)
+    }
+    
     public func body(content: Content) -> some View {
         content
-            .font(
-                Font.custom(
-                    FontManager.fontName(
-                        for: fontFamily ?? fontManager.fontFamily,
-                        weight: weight
-                    ),
-                    size: size
-                )
-            )
+            .font(customFont)
             .modifier(OptionalForegroundColor(color: color))
-            .ifLet(lineHeight) { view, lineHeight  in
+            .ifLet(lineHeight) { view, lineHeight in
                 view.fontWithLineHeight(
-                    font: UIFont(
-                        name: FontManager.fontName(for: fontManager.fontFamily, weight: weight),
-                        size: size
-                    )!,
+                    font: uiFont ?? UIFont.systemFont(ofSize: size),
                     lineHeight: lineHeight
                 )
             }
