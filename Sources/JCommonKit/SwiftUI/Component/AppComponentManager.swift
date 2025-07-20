@@ -39,12 +39,14 @@ public final class AppComponentManager {
         case toast
         case popup
         case loading
+        case networkAlert
         
         var level: UIWindow.Level {
             switch self {
             case .toast: return .init(3000)
             case .popup: return .init(3500)
             case .loading: return .init(4000)
+            case .networkAlert: return .init(4500)
             }
         }
     }
@@ -189,5 +191,27 @@ extension AppComponentManager {
     @MainActor
     public func hidePopup() {
         hideView(type: .popup)
+    }
+}
+
+// MARK: - Network
+
+extension AppComponentManager {
+    
+    @MainActor
+    public func showNetworkAlert<Content: View>(
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        showView(
+            ZStack {
+                content()
+            },
+            type: .networkAlert
+        )
+    }
+    
+    @MainActor
+    public func hideNetworkAlert() {
+        hideView(type: .networkAlert)
     }
 }
