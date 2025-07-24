@@ -38,19 +38,28 @@ public struct CarouselView<T: Identifiable, Content: View>: View {
     
     public var body: some View {
         GeometryReader { geometry in
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .center, spacing: itemSpacing) {
-                    ForEach(Array(data.enumerated()), id: \.element.id) { index, data in
-                        content(data)
-                            .frame(width: geometry.size.width - itemSpacing - contentMargins * 2.0)
-                            .id(index)
+            ScrollViewReader { scrollProxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .center, spacing: itemSpacing) {
+                        ForEach(Array(data.enumerated()), id: \.element.id) { index, data in
+                            content(data)
+                                .frame(width: geometry.size.width - itemSpacing - contentMargins * 2.0)
+                                .id(index)
+                        }
+                    }
+                    .scrollTargetLayout()
+                }
+                .contentMargins(contentMargins)
+                .scrollTargetBehavior(.viewAligned)
+                .scrollPosition(id: $currentIndex, anchor: .center)
+                .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            scrollProxy.scrollTo(currentIndex, anchor: .center)
+                        }
                     }
                 }
-                .scrollTargetLayout()
             }
-            .contentMargins(contentMargins)
-            .scrollTargetBehavior(.viewAligned)
-            .scrollPosition(id: $currentIndex, anchor: .center)
         }
     }
 }
