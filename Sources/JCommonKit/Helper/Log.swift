@@ -7,7 +7,13 @@
 
 import Foundation
 
-public enum LogLevel: String {
+// MARK: - Properties
+
+nonisolated(unsafe) public var enabledLogLevels: Set<LogLevel> = Set(LogLevel.allCases)
+
+// MARK: - LogLevel
+
+public enum LogLevel: String, CaseIterable {
     /// 디버그
     case debug = "DEBUG"
     /// 일반 정보
@@ -33,6 +39,8 @@ public enum LogLevel: String {
     }
 }
 
+// MARK: - Function
+
 public func log(
     _ message: String,
     _ level: LogLevel,
@@ -40,12 +48,16 @@ public func log(
     line: Int = #line,
     function: String = #function
 ) {
+    guard enabledLogLevels.contains(level) else { return }
+    
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm:ss"
     let timestamp = dateFormatter.string(from: Date())
     let fileName = URL(fileURLWithPath: file).lastPathComponent
     
+#if DEBUG
     print("[\(timestamp)][\(level.imoji)\(level.rawValue)][\(fileName):\(line)] \(message)")
+#endif
 }
 
 public func log(
@@ -55,10 +67,14 @@ public func log(
     line: Int = #line,
     function: String = #function
 ) {
+    guard enabledLogLevels.contains(level) else { return }
+    
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "HH:mm:ss"
     let timestamp = dateFormatter.string(from: Date())
     let fileName = URL(fileURLWithPath: file).lastPathComponent
     
+#if DEBUG
     print("[\(timestamp)][\(level.imoji)\(level.rawValue)][\(fileName):\(line)] \(message)")
+#endif
 }
