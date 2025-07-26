@@ -87,7 +87,8 @@ public struct PopupView: View {
         }
         .background(Color.gray100)
         .cornerRadius(16, corners: [.allCorners])
-        .padding(.horizontal, UIDevice.current.userInterfaceIdiom == .pad ? 120 : 40)
+        .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 400 : .infinity)
+        .padding(.horizontal, 40)
         .shadow(color: Color.black.opacity(0.1), radius: 13, x: 0, y: 4)
     }
 }
