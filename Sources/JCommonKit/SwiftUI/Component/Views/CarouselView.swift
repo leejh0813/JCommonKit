@@ -47,7 +47,7 @@ public struct CarouselView<T: Identifiable, Content: View>: View {
                     LazyHStack(alignment: .center, spacing: itemSpacing) {
                         ForEach(Array(data.enumerated()), id: \.element.id) { index, data in
                             content(data)
-                                .frame(width: geometry.size.width - itemSpacing - contentMargins * 2.0)
+                                .frame(width: geometry.size.width - contentMargins * 2.0)
                                 .id(index)
                         }
                     }
