@@ -7,4 +7,5 @@
 
 struct UI {
     static let dimOpacity = 0.3
+    static let popupWidth = 400.0
 }
