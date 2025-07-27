@@ -26,6 +26,8 @@ public enum LogLevel: String, CaseIterable {
     case important = "IMPORTANT"
     /// 이벤트
     case event = "EVENT"
+    /// 측정
+    case measure = "MEASURE"
     
     var imoji: String {
         switch self {
@@ -35,6 +37,7 @@ public enum LogLevel: String, CaseIterable {
         case .error: return "❗️"
         case .important: return "❤️"
         case .event: return "🎯"
+        case .measure: return "📊"
         }
     }
 }
