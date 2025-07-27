@@ -30,8 +30,8 @@ public enum LogLevel: String, CaseIterable {
     var imoji: String {
         switch self {
         case .debug: return ""
-        case .info: return ""
-        case .warning: return ""
+        case .info: return "ℹ️"
+        case .warning: return "⚠️"
         case .error: return "❗️"
         case .important: return "❤️"
         case .event: return "🎯"
