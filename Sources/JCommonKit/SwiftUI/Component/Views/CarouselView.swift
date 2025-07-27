@@ -53,7 +53,7 @@ public struct CarouselView<T: Identifiable, Content: View>: View {
                     }
                     .scrollTargetLayout()
                 }
-                .contentMargins(contentMargins)
+                .contentMargins(.horizontal, contentMargins)
                 .scrollTargetBehavior(.paging)
                 .scrollPosition(id: $currentIndex, anchor: .center)
                 .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
