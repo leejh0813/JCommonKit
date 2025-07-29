@@ -56,6 +56,19 @@ public extension FontManager {
             case .iMHyemin: "IM혜민체"
             }
         }
+        
+        public var englishName: String {
+            switch self {
+            case .pretendard: "Pretendard"
+            case .apppleSDGothicNeo: "Apple SD Gothic Neo"
+            case .dailyokja: "Ownglyph Dailyokja"
+            case .meetme: "Ownglyph Meetme"
+            case .ongeulipUiyeonche: "Ownglyph Uiyeon"
+            case .kimjungchul: "Kim Jung Chul Myeongjo"
+            case .oTLaundryGothic: "OT Laundry Gothic"
+            case .iMHyemin: "IM Hyemin"
+            }
+        }
     }
     
     enum FontWeight: String {
