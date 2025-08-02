@@ -16,7 +16,7 @@ public struct CommonUtils {
     ///   - color: 강조할 부분에 적용할 색상
     /// - Returns: 강조 부분이 적용된 AttributedString
     public static func formattedText(for text: String, highlight: String, color: Color) -> AttributedString {
-        var attributedString = AttributedString(text.forceCharWrapping)
+        var attributedString = AttributedString(text)
         
         if let range = attributedString.range(of: highlight) {
             attributedString[range].foregroundColor = color
